@@ -51,7 +51,7 @@ namespace ConwaysGame
             Window.IsBorderless = false;
             Window.AllowUserResizing = true;
             Window.ClientSizeChanged += Window_ClientSizeChanged;
-            Window.Title = "Plumbot 0.0";
+            Window.Title = "Conway's Game Of Life: Step-Less Version";
 
             base.Initialize();
         }
@@ -82,8 +82,8 @@ namespace ConwaysGame
             CellGrid = new CellGrid(
                 new Size(Assets.Cell_Alive.Height, Assets.Cell_Alive.Width),
                 cellGridPosition,
-                20,
-                12);
+                22,
+                16);
 
         }
         #endregion
