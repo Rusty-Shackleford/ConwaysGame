@@ -2,6 +2,8 @@
 
 My little interpretation on [Conway's Game Of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).  This repo also represents my first forray into Test Driven Development, so the tests are pretty awful, but hope to improve on them a bit before moving on to another exercise.
 
+![Game Of Life](https://raw.githubusercontent.com/Rusty-Shackleford/ConwaysGame/master/screenshot.png)
+
 ## Getting Started
 
 If you'd like to run the actual game, you can clone this repo and simply build and run the project in Visual Studio 2017.
