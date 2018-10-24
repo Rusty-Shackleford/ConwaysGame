@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConwaysGame", "ConwaysGame\ConwaysGame.csproj", "{90CFDFD8-FCFD-4D82-834D-6B92ABC36694}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{90CFDFD8-FCFD-4D82-834D-6B92ABC36694}.Debug|x86.ActiveCfg = Debug|x86
+		{90CFDFD8-FCFD-4D82-834D-6B92ABC36694}.Debug|x86.Build.0 = Debug|x86
+		{90CFDFD8-FCFD-4D82-834D-6B92ABC36694}.Release|x86.ActiveCfg = Release|x86
+		{90CFDFD8-FCFD-4D82-834D-6B92ABC36694}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8241C91B-0DB8-4E7B-A93E-463A3F6E1CA8}
+	EndGlobalSection
+EndGlobal
