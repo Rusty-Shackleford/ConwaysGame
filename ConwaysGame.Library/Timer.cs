@@ -9,7 +9,6 @@ namespace ConwaysGame.Library
 {
     public class Timer
     {
-
         #region [ Members ]
         public TimeSpan Interval { get; set; }
         public TimeSpan CurrentTime { get; protected set; }
@@ -31,6 +30,7 @@ namespace ConwaysGame.Library
             Interval = interval;
         }
         
+    
         public Timer(double intervalSeconds) : 
             this(TimeSpan.FromSeconds(intervalSeconds)) { }
         #endregion
@@ -47,9 +47,10 @@ namespace ConwaysGame.Library
         public void Stop()
         {
             State = TimerState.Stopped;
+            CurrentTime = TimeSpan.Zero;
+            OnStopped();
             Stopped?.Invoke(this, EventArgs.Empty);
         }
-
 
 
         public void Restart()
@@ -96,9 +97,11 @@ namespace ConwaysGame.Library
 
 
         #region [ OnStopped ]
-        public void OnStopped(GameTime gameTime)
+        public void OnStopped()
         {
+            State = TimerState.Stopped;
             CurrentTime = TimeSpan.Zero;
+
         }
         #endregion
     }

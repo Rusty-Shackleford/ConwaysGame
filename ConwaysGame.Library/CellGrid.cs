@@ -28,6 +28,10 @@ namespace ConwaysGame.Library
         public int LastRow { get { return Rows - 1; } }
         public int FirstCol = 0;
         public int LastCol { get { return Cols - 1; } }
+
+        private Timer UpdateTimer;
+        private bool TimeToUpdate;
+        public int GenerationCount { get; private set; }
         #endregion
 
 
@@ -46,6 +50,10 @@ namespace ConwaysGame.Library
             {
                 cell.Neighbors = GetNeighbors(cell);
             }
+
+            // Setup Timer to inform every 1 minute
+            UpdateTimer = new Timer(3);
+            UpdateTimer.Completed += OnTimerCompleted;
         }
         #endregion
 
@@ -188,17 +196,35 @@ namespace ConwaysGame.Library
         #region [ Update ]
         public void Update(GameTime gameTime)
         {
-            //var cell = Grid[0];
-            //cell.NextCellState = AI.GetCellState(cell.CellState, cell.LiveNeighborCount);
-            //Debug.Write(cell.NextCellState.ToString());
-            //cell.Update(gameTime);
+            UpdateTimer.Update(gameTime);
 
-            for (int i = 0; i < Grid.Count; i++)
+            if (TimeToUpdate)
             {
-                Grid[i].Update(gameTime);
+                TimeToUpdate = false;
+                // someList.ForEach(x => { if(x.RemoveMe) someList.Remove(x); }); 
+
+                for (int i = 0; i < Grid.Count; i++)
+                {
+                    Grid[i].NextState = AI.GetCellState(Grid[i].State, Grid[i].LivingNeighbors);
+                }
+
+                Grid.ForEach(cell =>
+                {
+                    cell.State = cell.NextState;
+                });
+                GenerationCount++;
             }
+
+        }
+
+
+        private void OnTimerCompleted(object sender, EventArgs e)
+        {
+            UpdateTimer.Restart();
+            TimeToUpdate = true;
         }
         #endregion
+
 
     }
 }

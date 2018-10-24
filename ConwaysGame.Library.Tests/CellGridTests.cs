@@ -114,14 +114,15 @@ namespace ConwaysGame.Library.Tests
         }
 
 
-        [Test]
-        public void GridUpdate_Test()
-        {
-            CellGrid grid = new CellGrid(new Size(50, 50), Vector2.Zero);
-            GameTime g = new GameTime();
-            grid.Update(g);
-            Assert.AreEqual(CellState.Alive, grid.Grid[0].State);
-        }
+        //[Test]
+        //public void GridUpdate_TTU_True()
+        //{
+        //    CellGrid grid = new CellGrid(new Size(50, 50), Vector2.Zero);
+        //    GameTime g = new GameTime();
+            
+        //    grid.Update(g);
+        //    Assert.AreEqual(CellState.Alive, grid.Grid[0].State);
+        //}
 
 
     }

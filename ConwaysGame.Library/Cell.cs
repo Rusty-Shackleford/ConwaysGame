@@ -18,8 +18,7 @@ namespace ConwaysGame.Library
         public Vector2 TexturePosition { get; set; }
         public List<Cell> Neighbors { get; set; }
         public GridLocation Location { get; private set; }
-        private Timer LifeClock;
-        private int StateChanges;
+        public int StateChanges;
 
         #region [ LiveNeighborCount ]
         public int LivingNeighbors
@@ -100,23 +99,6 @@ namespace ConwaysGame.Library
                 NextState = CellState.Dead;
                 State = CellState.Dead;
             }
-                
-
-            double interval = rand.NextDouble(1, 3);
-            LifeClock = new Timer(interval);
-
-            LifeClock.Completed += OnLifeUpdate;
-        }
-        #endregion
-
-
-        #region [ UpdateLife ]
-        private void OnLifeUpdate(object sender, EventArgs e)
-        {
-            NextState = AI.GetCellState(State, LivingNeighbors);
-            LifeClock.Restart();
-            StateChanges++;
-           // Debug.Write($"{ToString()} Update to: {NextState.ToString()}");
         }
         #endregion
 
@@ -124,7 +106,6 @@ namespace ConwaysGame.Library
         #region [ Update ]
         public void Update(GameTime gameTime)
         {
-            LifeClock.Update(gameTime);
             State = NextState;
         }
         #endregion
