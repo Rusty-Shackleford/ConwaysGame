@@ -75,5 +75,13 @@ namespace ConwaysGame.Library
         }
         #endregion
 
+
+        #region [ ToString ]
+        public override string ToString()
+        {
+            return $"Row: {Row}, Col: {Col}";
+        }
+        #endregion
+
     }
 }

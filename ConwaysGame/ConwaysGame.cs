@@ -162,7 +162,7 @@ namespace ConwaysGame
         {
             for (int i = 0; i < CellGrid.Grid.Count; i++)
             {
-                var texture = Assets.GetCellTexture(CellGrid.Grid[i].CellState);
+                var texture = Assets.GetCellTexture(CellGrid.Grid[i].State);
                 spriteBatch.Draw(texture, CellGrid.Grid[i].TexturePosition, Color.White);
             }
         }

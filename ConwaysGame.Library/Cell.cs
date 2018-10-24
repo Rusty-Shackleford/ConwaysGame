@@ -12,8 +12,8 @@ namespace ConwaysGame.Library
     public class Cell
     {
         #region [ Members ]
-        public CellState CellState { get; set; }
-        public CellState NextCellState { get; set; }
+        public CellState State { get; set; }
+        public CellState NextState { get; set; }
         public Vector2 TexturePosition { get; set; }
         public List<Cell> Neighbors { get; set; }
         public GridLocation Location { get; private set; }
@@ -26,7 +26,7 @@ namespace ConwaysGame.Library
                 int total = 0;
                 for (int i = 0; i < Neighbors.Count; i++)
                 {
-                    if (Neighbors[i].CellState == CellState.Alive)
+                    if (Neighbors[i].State == CellState.Alive)
                     {
                         total++;
                     }
@@ -79,8 +79,20 @@ namespace ConwaysGame.Library
         {
             TexturePosition = position;
             Location = new GridLocation(gridRow, gridCol);
-            CellState = CellState.Alive;
-            NextCellState = CellState.Unknown;
+            NextState = CellState.Unknown;
+            State = RandState();
+        }
+        #endregion
+
+
+        #region [ Initialize ]
+        private CellState RandState()
+        {
+            Random rnd = new Random();
+            int coin = rnd.Next(1, 25);
+            if (coin > 10)
+                return CellState.Alive;
+            return CellState.Dead;
         }
         #endregion
 
@@ -88,8 +100,8 @@ namespace ConwaysGame.Library
         #region [ Update ]
         public void Update(GameTime gameTime)
         {
-            CellState = NextCellState;
-            NextCellState = CellState.Unknown;
+            State = NextState;
+            NextState = CellState.Unknown;
         }
         #endregion
 

@@ -29,5 +29,13 @@ namespace ConwaysGame.Library
             return Width == other.Width && Height == other.Height;
         }
         #endregion
+
+
+        #region [ ToString ]
+        public override string ToString()
+        {
+            return $"Height: {Height}, Width: {Width}";
+        }
+        #endregion
     }
 }

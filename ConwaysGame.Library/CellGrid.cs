@@ -194,7 +194,7 @@ namespace ConwaysGame.Library
             for (int i = 0; i < Grid.Count; i++)
             {
                 var cell = Grid[i];
-                cell.NextCellState = AI.GetCellState(cell.CellState, cell.LiveNeighborCount);
+                cell.NextState = AI.GetCellState(cell.State, cell.LiveNeighborCount);
             }
 
             for (int i = 0; i < Grid.Count; i++)

@@ -42,7 +42,7 @@ namespace ConwaysGame.Library.Tests
 
             // Act:  We will mark the cell at index 5 as dead
             // then retrieve it using it's GridLocation
-            grid.Grid[5].NextCellState = CellState.Dead;
+            grid.Grid[5].NextState = CellState.Dead;
             GridLocation location = grid.Grid[5].Location;
             IEnumerable<Cell> testCells = grid.GetCellAt(location);
             Cell testCell = testCells.ElementAt(0);
@@ -50,7 +50,7 @@ namespace ConwaysGame.Library.Tests
             // Assert
             // Cell State should be dead, since we set it above, and all NextCellStates
             // default to CellState.Unknown
-            Assert.AreEqual(testCell.NextCellState, CellState.Dead);
+            Assert.AreEqual(testCell.NextState, CellState.Dead);
         }
 
 
@@ -120,7 +120,7 @@ namespace ConwaysGame.Library.Tests
             CellGrid grid = new CellGrid(new Size(50, 50), Vector2.Zero);
             GameTime g = new GameTime();
             grid.Update(g);
-            Assert.AreEqual(CellState.Alive, grid.Grid[0].CellState);
+            Assert.AreEqual(CellState.Alive, grid.Grid[0].State);
         }
 
 
