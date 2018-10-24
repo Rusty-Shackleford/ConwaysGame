@@ -40,5 +40,5 @@ This project is licensed under the "Do whatever you want with it" license, as th
 
 ## Acknowledgments
 
-* Kudos to [JeremyBytes](https://www.youtube.com/channel/UC6WpUVfD0nHbhqnmzuMZCDw), whose YouTube videos on Test Driven Development inspired this.. thing.
+* Kudos to @jeremybytes whose [YouTube](https://www.youtube.com/channel/UC6WpUVfD0nHbhqnmzuMZCDw), videos on Test Driven Development inspired this.. thing.
 
