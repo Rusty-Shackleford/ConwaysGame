@@ -1,4 +1,4 @@
-# Project Title
+# ConwaysGame
 
 My little interpretation on [Conway's Game Of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).  This repo also represents my first forray into Test Driven Development, so the tests are pretty awful, but hope to improve on them a bit before moving on to another exercise.
 
