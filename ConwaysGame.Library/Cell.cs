@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,9 +18,11 @@ namespace ConwaysGame.Library
         public Vector2 TexturePosition { get; set; }
         public List<Cell> Neighbors { get; set; }
         public GridLocation Location { get; private set; }
+        private Timer LifeClock;
+        private int StateChanges;
 
         #region [ LiveNeighborCount ]
-        public int LiveNeighborCount
+        public int LivingNeighbors
         {
             get
             {
@@ -79,20 +82,41 @@ namespace ConwaysGame.Library
         {
             TexturePosition = position;
             Location = new GridLocation(gridRow, gridCol);
-            NextState = CellState.Unknown;
-            State = RandState();
         }
         #endregion
 
 
         #region [ Initialize ]
-        private CellState RandState()
+        public void Initialize(Random rand)
         {
-            Random rnd = new Random();
-            int coin = rnd.Next(1, 25);
+            int coin = rand.Next(1, 20);
             if (coin > 10)
-                return CellState.Alive;
-            return CellState.Dead;
+            {
+                NextState = CellState.Alive;
+                State = CellState.Alive;
+            }
+            else
+            {
+                NextState = CellState.Dead;
+                State = CellState.Dead;
+            }
+                
+
+            double interval = rand.NextDouble(1, 3);
+            LifeClock = new Timer(interval);
+
+            LifeClock.Completed += OnLifeUpdate;
+        }
+        #endregion
+
+
+        #region [ UpdateLife ]
+        private void OnLifeUpdate(object sender, EventArgs e)
+        {
+            NextState = AI.GetCellState(State, LivingNeighbors);
+            LifeClock.Restart();
+            StateChanges++;
+           // Debug.Write($"{ToString()} Update to: {NextState.ToString()}");
         }
         #endregion
 
@@ -100,19 +124,19 @@ namespace ConwaysGame.Library
         #region [ Update ]
         public void Update(GameTime gameTime)
         {
+            LifeClock.Update(gameTime);
             State = NextState;
-            NextState = CellState.Unknown;
         }
         #endregion
 
 
-        #region [ Draw ]
-        public void Draw(SpriteBatch spriteBatch)
+        #region [ ToString ]
+        public override string ToString()
         {
-            //spriteBatch.Draw(Texture, Position, Color.White);
+            return $"[Cell @ {Location.ToString()}]: {State.ToString()} " +
+                $"State Changes: {StateChanges.ToString()}";
         }
         #endregion
-
 
     }
 }

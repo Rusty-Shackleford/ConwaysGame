@@ -82,8 +82,8 @@ namespace ConwaysGame
             CellGrid = new CellGrid(
                 new Size(Assets.Cell_Alive.Height, Assets.Cell_Alive.Width),
                 cellGridPosition,
-                5,
-                5);
+                20,
+                12);
 
         }
         #endregion
@@ -114,8 +114,12 @@ namespace ConwaysGame
             }
 
 
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed 
+                || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            {
                 Exit();
+            }
+                
 
             // TODO: Add your update logic here
             CellGrid.Update(gameTime);
@@ -127,12 +131,12 @@ namespace ConwaysGame
         #region [ Draw ]
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
             GlobalSpriteBatch.Begin();
             // Background:
-            GlobalSpriteBatch.Draw(background, Vector2.Zero, Color.White);
+            // GlobalSpriteBatch.Draw(background, Vector2.Zero, Color.White);
 
             // Testing Stuff
             DrawGrid(GlobalSpriteBatch);

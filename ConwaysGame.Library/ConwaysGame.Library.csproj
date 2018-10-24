@@ -48,7 +48,10 @@
     <Compile Include="CellState.cs" />
     <Compile Include="GridLocation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandomExtensions.cs" />
     <Compile Include="Size.cs" />
+    <Compile Include="Timer.cs" />
+    <Compile Include="TimerState.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

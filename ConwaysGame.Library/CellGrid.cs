@@ -53,6 +53,7 @@ namespace ConwaysGame.Library
         #region [ SetupGrid ]
         private void SetupGrid()
         {
+            Random rand = new Random();
             float x = Position.X;
             float y = Position.Y;
 
@@ -61,6 +62,7 @@ namespace ConwaysGame.Library
                 for (int j = 0; j < Cols; j++)
                 {
                     Cell cell = new Cell(new Vector2(x, y), i, j);
+                    cell.Initialize(rand);
                     Grid.Add(cell);
                     //Debug.Print($"Row: {i} Col: {j}");
                     x += CellTextureSize.Width;
@@ -190,12 +192,6 @@ namespace ConwaysGame.Library
             //cell.NextCellState = AI.GetCellState(cell.CellState, cell.LiveNeighborCount);
             //Debug.Write(cell.NextCellState.ToString());
             //cell.Update(gameTime);
-
-            for (int i = 0; i < Grid.Count; i++)
-            {
-                var cell = Grid[i];
-                cell.NextState = AI.GetCellState(cell.State, cell.LiveNeighborCount);
-            }
 
             for (int i = 0; i < Grid.Count; i++)
             {

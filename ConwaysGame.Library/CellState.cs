@@ -3,7 +3,6 @@
     public enum CellState
     {
         Alive,
-        Dead,
-        Unknown
+        Dead
     }
 }
