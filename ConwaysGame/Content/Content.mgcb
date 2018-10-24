@@ -61,6 +61,18 @@
 /processorParam:TextureFormat=Color
 /build:Cell_Alive_v3.png
 
+#begin Cell_Alive_v3_Blue.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Cell_Alive_v3_Blue.png
+
 #begin Cell_Dead.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -96,6 +108,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Cell_Dead_v3.png
+
+#begin Cell_Dead_v3_Dark.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Cell_Dead_v3_Dark.png
 
 #begin MouseCursor.png
 /importer:TextureImporter

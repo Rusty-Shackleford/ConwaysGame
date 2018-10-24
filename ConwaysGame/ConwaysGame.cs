@@ -51,7 +51,7 @@ namespace ConwaysGame
             Window.IsBorderless = false;
             Window.AllowUserResizing = true;
             Window.ClientSizeChanged += Window_ClientSizeChanged;
-            Window.Title = "Conway's Game Of Life: Step-Less Version";
+            Window.Title = "Conway's Game Of Life";
 
             base.Initialize();
         }
@@ -131,7 +131,7 @@ namespace ConwaysGame
         #region [ Draw ]
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Black);
+            GraphicsDevice.Clear(new Color(32,32,32));
 
             // TODO: Add your drawing code here
             GlobalSpriteBatch.Begin();

@@ -21,8 +21,8 @@ namespace ConwaysGame
 
         public static void LoadContent(ContentManager content)
         {
-            Cell_Alive = content.Load<Texture2D>(@"Cell_Alive_v3");
-            Cell_Dead = content.Load<Texture2D>(@"Cell_Dead_v3");
+            Cell_Alive = content.Load<Texture2D>(@"Cell_Alive_v3_Blue");
+            Cell_Dead = content.Load<Texture2D>(@"Cell_Dead_v3_Dark");
             CellTextureSize = SetCellTextureSize();
             Background = content.Load<Texture2D>(@"Background");
             MouseCursor = content.Load<Texture2D>(@"MouseCursor");
