@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using ConwaysGame.Library;
+using System.Collections.Generic;
 
 namespace ConwaysGame
 {
@@ -26,6 +27,7 @@ namespace ConwaysGame
         // Specific Junk
         Texture2D background { get; set; }
         CellGrid CellGrid { get; set; }
+
         #endregion
 
 
@@ -84,7 +86,8 @@ namespace ConwaysGame
                 cellGridPosition,
                 22,
                 16);
-
+            CellGrid.ApplyLifePattern(PatternLibrary.Toad);
+            CellGrid.SetInterval(1);
         }
         #endregion
 

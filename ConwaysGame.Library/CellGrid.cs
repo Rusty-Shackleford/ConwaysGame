@@ -58,6 +58,15 @@ namespace ConwaysGame.Library
         #endregion
 
 
+        #region [ SetInterval ]
+        public void SetInterval(int intervalInSeconds)
+        {
+            UpdateTimer.Stop();
+            UpdateTimer.Interval = TimeSpan.FromSeconds(intervalInSeconds);
+            UpdateTimer.Start();
+        }
+        #endregion
+
         #region [ SetupGrid ]
         private void SetupGrid()
         {
@@ -78,6 +87,21 @@ namespace ConwaysGame.Library
                 y += CellTextureSize.Height;
                 x = Position.X;
             }
+        }
+        #endregion
+
+
+        #region [ ApplyLifePattern ]
+        public void ApplyLifePattern(List<GridLocation> locations)
+        {
+            UpdateTimer.Stop();
+            Grid.ForEach(cell => { cell.State = CellState.Dead; });
+            foreach (var location in locations)
+            {
+                Cell raiseCell = GetCellAt(location).ElementAt(0);
+                raiseCell.State = CellState.Alive;
+            }
+            UpdateTimer.Start();
         }
         #endregion
 
@@ -201,7 +225,6 @@ namespace ConwaysGame.Library
             if (TimeToUpdate)
             {
                 TimeToUpdate = false;
-                // someList.ForEach(x => { if(x.RemoveMe) someList.Remove(x); }); 
 
                 for (int i = 0; i < Grid.Count; i++)
                 {
